@@ -8,6 +8,8 @@ public class Brad01 {
 		byte $_$;
 		byte 變數6;
 		
-		
+		short s1;	// 2^16 = 65536 => -32768 ~ 32767
+		int i1;	// 2^32 => 4290000000 => 4G
+		long long1;	// 2^64
 	}
 }
