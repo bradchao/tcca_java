@@ -20,6 +20,10 @@ public class Brad04 {
 		int a1 = c1 +120;
 		System.out.println(a1);
 		
+		boolean b1 = true;
+		boolean b2 = false;
+		
+		
 		
 	}
 
