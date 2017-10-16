@@ -11,6 +11,18 @@ public class Brad02 {
 		v4++;
 		v4++;
 		System.out.println(v4);
+		byte v5 = 125;
+		v5 += 3;
+		System.out.println(v5);
+		byte v6 = 125;
+		v6 = (byte)(v6 + 3);
+		System.out.println(v6);
+		
+		
+		
+		
+		
+		
 		
 		
 	}
