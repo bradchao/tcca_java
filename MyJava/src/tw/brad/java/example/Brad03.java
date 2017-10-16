@@ -9,12 +9,13 @@ public class Brad03 {
 		long v4 = 123;
 		long v5 = v1 + v2 + v4;
 		
-		int a1 = 10, a2 = 0;
+		int a1 = 10, a2 = 3;
 		System.out.println("Brad");
 		int a3 = a1 / a2;
 		System.out.println(a3);
 		
-		
+		int a4 = 0x12;
+		System.out.println(a4);
 		
 	}
 
