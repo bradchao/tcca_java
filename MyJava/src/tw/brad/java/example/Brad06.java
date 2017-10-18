@@ -3,13 +3,23 @@ package tw.brad.java.example;
 public class Brad06 {
 
 	public static void main(String[] args) {
-		System.out.println(Math.random());
-		int score = 76;	// 0 - 100
-		if (score >= 60) {
-			System.out.println("PASS");
+		double temp = Math.random();	// 0.0 <= x < 1.0
+		int score = (int)(temp * 101);	// 0 - 100 => 101 numbers
+		System.out.println(score);
+		if (score >= 90) {
+			System.out.println("A");
+		}else if (score >= 80) {
+			System.out.println("B");
+		}else if (score >= 70) {
+			System.out.println("C");
+		}else if (score >= 60) {
+			System.out.println("D");
 		}else {
-			System.out.println("DOWN");
+			System.out.println("E");
 		}
+		
+		
+		
 	}
 
 }
