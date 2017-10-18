@@ -7,10 +7,16 @@ public class Brad12 {
 			for (int i=1; i<=10; i++) {
 				int n = i + j * 10;
 				
+				boolean isP = true;
+				for (int k=2; k<n; k++) {
+					if (n % k == 0) {
+						// 
+						isP = false;
+						break;
+					}
+				}
 				
-				
-				
-				System.out.print(n + "  ");
+				System.out.print(n + (isP?"* ":"  "));
 			}
 			System.out.println();
 		}
