@@ -4,7 +4,7 @@ public class Brad06 {
 
 	public static void main(String[] args) {
 		System.out.println(Math.random());
-		int score = 76;
+		int score = 76;	// 0 - 100
 		if (score >= 60) {
 			System.out.println("PASS");
 		}else {
