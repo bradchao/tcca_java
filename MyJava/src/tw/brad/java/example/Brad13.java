@@ -10,7 +10,14 @@ public class Brad13 {
 		System.out.println(a1[0]);
 		System.out.println(a1[1]);
 		System.out.println(a1[2]);
-		//System.out.println(a1[3]);
+		System.out.println("-----");
+		a1[0] = 123;
+		a1[2] = 12;
+		for (int i=0; i<a1.length; i++) {
+			System.out.println(a1[i]);
+		}
+		
+		
 		
 		
 	}
