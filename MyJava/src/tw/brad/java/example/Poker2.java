@@ -4,12 +4,13 @@ public class Poker2 {
 
 	public static void main(String[] args) {
 		// 洗牌 => poker[]
-		int[] poker = new int[6];	// 0, 0, ... 0
+		long start = System.currentTimeMillis();
+		int[] poker = new int[52];	// 0, 0, ... 0
 		boolean isR;
 		int temp;
 		for (int i=0; i<poker.length; i++) {
 			do {
-				temp = (int)(Math.random()*6);
+				temp = (int)(Math.random()*52);
 				
 				// 檢查機制
 				isR = false;
@@ -25,6 +26,9 @@ public class Poker2 {
 			System.out.println(poker[i]);
 			
 		}
+		System.out.println("----");
+		System.out.println(System.currentTimeMillis() - start);
+
 		// 發牌 => players[4][13]
 		
 		// 攤牌 => for-each => 理牌
