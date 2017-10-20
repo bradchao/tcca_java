@@ -16,7 +16,11 @@ public class Brad13 {
 		for (int i=0; i<a1.length; i++) {
 			System.out.println(a1[i]);
 		}
-		
+		System.out.println("-----");
+		// for-each
+		for (int v : a1) {
+			System.out.println(v);
+		}
 		
 		
 		
