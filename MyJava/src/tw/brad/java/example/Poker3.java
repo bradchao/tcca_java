@@ -1,5 +1,7 @@
 package tw.brad.java.example;
 
+import java.util.Arrays;
+
 public class Poker3 {
 
 	public static void main(String[] args) {
@@ -36,6 +38,7 @@ public class Poker3 {
 		String[] values = {"A ","2 ","3 ","4 ","5 ","6 ","7 ",
 				"8 ","9 ","10","J ","Q ","K "};
 		for (int[] player : players) {
+			Arrays.sort(player);
 			for (int card : player) {
 				System.out.print(suits[card/13] + values[card%13] + " ");
 			}
