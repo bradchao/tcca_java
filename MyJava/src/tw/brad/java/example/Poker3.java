@@ -18,12 +18,12 @@ public class Poker3 {
 			
 		}
 		
-		for (int v : poker) {
-			System.out.println(v);
-		}
-		System.out.println("----");
-		System.out.println(System.currentTimeMillis() - start);
-		System.out.println("----");
+//		for (int v : poker) {
+//			System.out.println(v);
+//		}
+//		System.out.println("----");
+//		System.out.println(System.currentTimeMillis() - start);
+//		System.out.println("----");
 		
 		// 發牌 => players[4][13]
 		int[][] players = new int[4][13];
@@ -31,13 +31,15 @@ public class Poker3 {
 			players[i%4][i/4] = poker[i];
 		}
 		
-		for (int v : players[1]) {
-			System.out.println(v);
+		// 攤牌 => for-each => 理牌
+		for (int[] player : players) {
+			for (int card : player) {
+				System.out.print(card + " ");
+			}
+			System.out.println();
 		}
 		
 		
-		
-		// 攤牌 => for-each => 理牌
 		
 	}
 
