@@ -1,7 +1,20 @@
 package tw.brad.java.example;
 
 public class Bike {
-	private double speed;
+	private double speed;	// 0.0
+	private int color;	// 0
+	
+	Bike(){
+		color = 1;
+		System.out.println("OK");
+	}
+	Bike(int newcolor){
+		color = newcolor;
+	}
+	
+	int getColor() {
+		return color;
+	}
 	
 	void upSpeed() {
 		speed = speed<1?1:speed*1.2;
@@ -18,4 +31,10 @@ public class Bike {
 	double getSpeed() {
 		return speed;
 	}
+	
+//	@Override
+//	public String toString() {
+//		return "Brad Bike";
+//	}
+	
 }
