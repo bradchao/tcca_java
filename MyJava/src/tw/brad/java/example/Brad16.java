@@ -7,6 +7,11 @@ public class Brad16 {
 			System.out.println(a);
 			a--;
 		}
-		
+		System.out.println("---");
+		a = 10;
+		for (;a>0;) {
+			System.out.println(a);
+			a--;
+		}
 	}
 }
