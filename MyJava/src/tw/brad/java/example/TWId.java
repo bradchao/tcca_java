@@ -2,6 +2,8 @@ package tw.brad.java.example;
 
 public class TWId {
 	private String id;
+	private static String letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
+	
 	public TWId() {
 		this((int)(Math.random()*2)==0);
 	}
@@ -12,7 +14,17 @@ public class TWId {
 		this((int)(Math.random()*2)==0 ,area);
 	}
 	public TWId(boolean isMale, int area) {
-		
+		id = letters.substring(area,area+1);
+		id += isMale?"1":"2";
+		for (int i=0; i<7; i++) {
+			id += (int)(Math.random()*10);
+		}
+		for (int i=0; i<10; i++) {
+			if (isRight(id+i)) {
+				id = id+i;
+				break;
+			}
+		}
 	}
 	
 	
@@ -35,7 +47,7 @@ public class TWId {
 		boolean ret = false;
 		if (id.matches("^[A-Z][12][0-9]{8}$")) {
 			// 5. 檢查碼
-			String letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
+			
 			int n12 = letters.indexOf(id.charAt(0)) + 10;
 			int n1 = n12 / 10;
 			int n2 = n12 % 10;
