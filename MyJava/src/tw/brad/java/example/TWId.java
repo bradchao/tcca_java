@@ -6,7 +6,11 @@ public class TWId {
 		
 	}
 	public TWId(String id) {
-		
+		this.id = id;
+	}
+	
+	public String getId() {
+		return id;
 	}
 	public boolean isMale() {
 		return true;
@@ -15,5 +19,15 @@ public class TWId {
 		return "A";
 	}
 	
+	public static boolean isRight(String id) {
+		// 1. length = 10
+		// 2. charAt(0) = [A-Z]
+		// 3. charAt(1) = [12]
+		// 4. charAt(2-9) = [0-9]
+		// 5. 檢查碼
+		
+		
+		return true;
+	}
 	
 }
