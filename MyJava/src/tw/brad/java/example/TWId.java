@@ -20,14 +20,14 @@ public class TWId {
 	}
 	
 	public static boolean isRight(String id) {
-		// 1. length = 10
-		// 2. charAt(0) = [A-Z]
-		// 3. charAt(1) = [12]
-		// 4. charAt(2-9) = [0-9]
-		// 5. 檢查碼
+		boolean ret = false;
+		if (id.matches("^[A-Z][12][0-9]{8}$")) {
+			// 5. 檢查碼
+			
+		}
 		
 		
-		return true;
+		return ret;
 	}
 	
 }
