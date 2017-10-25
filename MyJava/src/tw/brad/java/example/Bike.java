@@ -3,13 +3,15 @@ package tw.brad.java.example;
 public class Bike {
 	private double speed;	// 0.0
 	private int color;	// 0
-	
+	static int counter;
 	Bike(){
 		color = 1;
 		System.out.println("OK");
+		counter++;
 	}
 	Bike(int newcolor){
 		color = newcolor;
+		counter++;
 	}
 	
 	int getColor() {
