@@ -20,4 +20,7 @@ class Brad292 extends Brad291 {
 		// super()
 		super(2);
 	}
+	Brad292(int a){
+		this();
+	}
 }

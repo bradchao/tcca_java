@@ -1,6 +1,6 @@
 package tw.brad.java.example;
 
-public class TWId {
+public class TWId extends Object{
 	private String id;
 	private static String letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
 	
@@ -14,6 +14,7 @@ public class TWId {
 		this((int)(Math.random()*2)==0 ,area);
 	}
 	public TWId(boolean isMale, int area) {
+		// super()
 		id = letters.substring(area,area+1);
 		id += isMale?"1":"2";
 		for (int i=0; i<7; i++) {
