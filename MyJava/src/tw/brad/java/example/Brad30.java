@@ -1,27 +1,39 @@
 package tw.brad.java.example;
 
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 public class Brad30 extends JFrame {
 	// Brad30 Object has-a JButton Object
 	// Brad30 Object is-a JFrame, .... Container
 	JButton open, save, exit;
+	JTextArea area;
 	
 	public Brad30() {
 		// super();
 		super("視窗城市");
-		setLayout(new FlowLayout());
+		setLayout(new BorderLayout());
 		
+		JPanel top = new JPanel(new FlowLayout());
 		open = new JButton("Open");
 		save = new JButton("Save");
 		exit = new JButton("Exit");
+		top.add(open); top.add(save); top.add(exit);
 		
-		add(open); add(save); add(exit);
+		area = new JTextArea();
+		
+		add(top, BorderLayout.NORTH);
+		add(area, BorderLayout.CENTER);
+		
+		
+		
 		
 //		MyListener listener = new MyListener(this);
 //		open.addActionListener(listener);
