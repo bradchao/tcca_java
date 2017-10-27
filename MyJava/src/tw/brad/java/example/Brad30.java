@@ -23,10 +23,34 @@ public class Brad30 extends JFrame {
 		
 		add(open); add(save); add(exit);
 		
-		MyListener listener = new MyListener(this);
-		open.addActionListener(listener);
-		save.addActionListener(listener);
-		exit.addActionListener(listener);
+//		MyListener listener = new MyListener(this);
+//		open.addActionListener(listener);
+//		save.addActionListener(listener);
+//		exit.addActionListener(listener);
+
+		open.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("open");
+			}
+		});
+		
+		save.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("save");
+			}
+		});
+		
+		exit.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("exit");
+			}
+		});
+		
+		
+		
 		
 		setSize(640, 480);
 		setVisible(true);
@@ -38,6 +62,7 @@ public class Brad30 extends JFrame {
 	}
 
 }
+/*
 class MyListener implements ActionListener {
 	private Brad30 obj;
 	public MyListener(Brad30 brad30) {
@@ -57,3 +82,4 @@ class MyListener implements ActionListener {
 
 	}
 }
+*/
