@@ -1,6 +1,8 @@
 package tw.brad.java.example;
 
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,8 +15,7 @@ public class Brad30 extends JFrame {
 	public Brad30() {
 		// super();
 		super("視窗城市");
-		FlowLayout layout = new FlowLayout();
-		setLayout(layout);
+		setLayout(new FlowLayout());
 		
 		open = new JButton("Open");
 		save = new JButton("Save");
@@ -22,12 +23,22 @@ public class Brad30 extends JFrame {
 		
 		add(open); add(save); add(exit);
 		
+		open.addActionListener(new MyListener());
+		
 		setSize(640, 480);
 		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
 	public static void main(String[] args) {
 		new Brad30();
 	}
 
+}
+class MyListener implements ActionListener {
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		System.out.println("OK");
+	}
 }
