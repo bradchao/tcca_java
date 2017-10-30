@@ -28,12 +28,18 @@ public class TWId extends Object{
 		}
 	}
 	
-	
-	
-	public TWId(String id) {
+	private TWId(String id){
 		this.id = id;
-		
 	}
+	
+	public static TWId createTWId(String id) {
+		if (isRight(id)) {
+			return new TWId(id);
+		}else {
+			return null;
+		}
+	}
+	
 	
 	public String getId() {
 		return id;
