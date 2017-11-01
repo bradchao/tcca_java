@@ -7,9 +7,9 @@ public class Brad45 {
 	public static void main(String[] args) {
 		try {
 			FileInputStream fin = new FileInputStream("./dir1/file1");
-			int v1;
-			while ( (v1 = fin.read()) != -1) {
-				System.out.print((char)v1);
+			int v1; byte[] buf = new byte[3];
+			while ( (v1 = fin.read(buf)) != -1) {
+				System.out.print(new String(buf));
 			}
 			
 			fin.close();
