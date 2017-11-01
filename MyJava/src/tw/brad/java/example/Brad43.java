@@ -28,6 +28,33 @@ public class Brad43 {
 		System.out.println("---");
 		System.out.println(root1.equals(root4));
 		
+		File dir4 = new File(newfile,
+				"/dir2/dir3/dir4");
+		if (dir4.exists()) {
+			System.out.println("OK:dir4");
+		}else {
+			System.out.println("xx:dir4");
+			dir4.mkdirs();
+		}
+		System.out.println("---");
+		File file1 = new File(dir4, "file1");
+		File file2 = new File(dir4, "file2");
+		if (file1.renameTo(file2)) {
+			System.out.println("rename ok");
+		}else {
+			System.out.println("rename xx");
+		}
+		File dir2 = new File("./dir1/dir2");
+		File file3 = new File(dir2, "/dir4");
+		if (dir4.renameTo(file3)) {
+			System.out.println("rename2 ok");
+		}else {
+			System.out.println("rename2 xx");
+		}
+		
+		
+		
+		
 		
 		
 		
