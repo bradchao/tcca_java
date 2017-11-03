@@ -24,6 +24,7 @@ public class Brad58 {
 			Brad584 obj3 = (Brad584)obj2;
 			oin.close();
 			System.out.println("read OK");
+			System.out.println(obj3.b);
 			System.out.println(obj3.c);
 			System.out.println(obj1 == obj3);
 		}catch(Exception ee) {
@@ -49,8 +50,8 @@ class Brad583 extends Brad582 implements Serializable {
 }
 class Brad584 implements Serializable {
 	int a = 10;
-	int b = 3;
-	String c = "OK";
+	transient int b = 3;
+	transient String c = "OK";
 	Brad583 obj = new Brad583();
 			
 }
