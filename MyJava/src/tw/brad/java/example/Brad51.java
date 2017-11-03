@@ -3,7 +3,9 @@ package tw.brad.java.example;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.InputStreamReader;
+import java.net.URI;
 
 public class Brad51 {
 
@@ -18,7 +20,6 @@ public class Brad51 {
 			}
 			
 			reader.close();
-			
 			
 		} catch (Exception e) {
 		}
