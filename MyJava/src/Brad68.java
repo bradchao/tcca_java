@@ -34,12 +34,13 @@ public class Brad68 {
 //			int i = stmt.executeUpdate("delete from cust where cname='brad9'");
 //			int i = stmt.executeUpdate("update cust set cname='peter',tel='321' where id=4");
 			
-			ResultSet rs = stmt.executeQuery("select * from cust");
+			ResultSet rs = stmt.executeQuery("select id,tel,cname as custom,birthday from cust");
+			
 			while (rs.next()) {
-				String id = rs.getString(1);
-				String cname = rs.getString(2);
-				String tel = rs.getString(3);
-				String birthday = rs.getString(4);
+				String id = rs.getString(rs.findColumn("id"));
+				String cname = rs.getString(rs.findColumn("custom"));
+				String tel = rs.getString(rs.findColumn("tel"));
+				String birthday = rs.getString(rs.findColumn("birthday"));
 				System.out.println(id +":" + cname +":" + tel + ":" + birthday);
 			}
 
