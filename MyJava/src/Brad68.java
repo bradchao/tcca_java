@@ -1,5 +1,6 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Properties;
 
@@ -22,7 +23,6 @@ public class Brad68 {
 			Connection conn = DriverManager.getConnection(
 					"jdbc:mysql://localhost/tcca", prop);
 			
-			
 			Statement stmt = conn.createStatement();
 //			int i = stmt.executeUpdate(
 //					"insert into cust (cname,tel,birthday) values " + 
@@ -32,10 +32,17 @@ public class Brad68 {
 //			);
 			
 //			int i = stmt.executeUpdate("delete from cust where cname='brad9'");
-			int i = stmt.executeUpdate("update cust set cname='peter',tel='321' where id=4");
+//			int i = stmt.executeUpdate("update cust set cname='peter',tel='321' where id=4");
 			
-			
-			System.out.println(i);
+			ResultSet rs = stmt.executeQuery("select * from cust");
+			while (rs.next()) {
+				String id = rs.getString(1);
+				String cname = rs.getString(2);
+				String tel = rs.getString(3);
+				String birthday = rs.getString(4);
+				System.out.println(id +":" + cname +":" + tel + ":" + birthday);
+			}
+
 		} catch (Exception e) {
 			System.out.println("Exception");
 		}
