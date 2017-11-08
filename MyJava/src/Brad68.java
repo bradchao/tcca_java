@@ -7,7 +7,7 @@ public class Brad68 {
 
 	public static void main(String[] args) {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			//Class.forName("com.mysql.jdbc.Driver");
 			
 //			Connection conn = DriverManager.getConnection(
 //					"jdbc:mysql://localhost/tcca?user=root&password=root");
@@ -24,12 +24,16 @@ public class Brad68 {
 			
 			
 			Statement stmt = conn.createStatement();
-			int i = stmt.executeUpdate(
-					"insert into cust (cname,tel,birthday) values " + 
-			"('brad7','123','1999-01-02'), " +
-			"('brad8','123','1999-01-02'), " +
-			"('brad9','123','1999-01-02') " 
-			);
+//			int i = stmt.executeUpdate(
+//					"insert into cust (cname,tel,birthday) values " + 
+//			"('brad7','123','1999-01-02'), " +
+//			"('brad8','123','1999-01-02'), " +
+//			"('brad9','123','1999-01-02') " 
+//			);
+			
+			int i = stmt.executeUpdate("delete from cust where cname='brad9'");
+			
+			
 			System.out.println(i);
 		} catch (Exception e) {
 			System.out.println("Exception");
