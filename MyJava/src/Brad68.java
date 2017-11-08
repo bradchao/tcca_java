@@ -31,7 +31,8 @@ public class Brad68 {
 //			"('brad9','123','1999-01-02') " 
 //			);
 			
-			int i = stmt.executeUpdate("delete from cust where cname='brad9'");
+//			int i = stmt.executeUpdate("delete from cust where cname='brad9'");
+			int i = stmt.executeUpdate("update cust set cname='peter',tel='321' where id=4");
 			
 			
 			System.out.println(i);
