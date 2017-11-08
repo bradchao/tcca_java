@@ -1,3 +1,4 @@
+package tw.brad.java.example;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -33,7 +34,7 @@ public class Brad68 {
 			
 //			int i = stmt.executeUpdate("delete from cust where cname='brad9'");
 //			int i = stmt.executeUpdate("update cust set cname='peter',tel='321' where id=4");
-			
+			// "select account,passwd from member where account='" + account + "; delete from member; '";
 			ResultSet rs = stmt.executeQuery("select id,tel,cname as custom,birthday from cust");
 			
 			while (rs.next()) {
