@@ -16,8 +16,21 @@ public class Brad71 {
 		byte i5 = 123;
 		int i7 = i5;		// 自動轉型
 		Integer i6 = i7;	// 自動封箱
+
+		m1(i5);
+		m1(123);
+		m1(i7);
+		m1(i6);
 		
 		
 	}
+	
+	static void m1(int a) {
+		System.out.println("OK1");
+	}
+	static void m1(Integer a) {
+		System.out.println("OK2");
+	}
+	
 
 }
