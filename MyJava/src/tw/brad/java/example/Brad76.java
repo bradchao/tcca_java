@@ -5,16 +5,25 @@ import java.util.LinkedList;
 public class Brad76 {
 
 	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
-		list.add(0,"brad");
-		list.add(0,"ok");
-		list.add(0, "brad");
-		list.add(0,"tcca");
+		LinkedList<Integer> list = new LinkedList<>();
+		list.add(0,11);
 		list.add(0,123);
-		list.add(0,12.3);
-		list.add(0,true);
+		list.add(0, 456);
+		list.add(0,111);
+		list.add(0,123);
+		list.add(0,123);
+		list.add(0,789);
 		System.out.println(list.size());
 		System.out.println(list.toString());
+		
+		for (Integer i : list) {
+			System.out.println(i);
+		}
+		for (int i=0; i<list.size(); i++) {
+			System.out.println(list.get(i));
+		}
+		
+		
 	}
 
 }
