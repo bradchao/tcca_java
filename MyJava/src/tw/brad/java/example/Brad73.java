@@ -21,6 +21,14 @@ public class Brad73 {
 			Integer ii = (Integer)obj;
 			System.out.println(ii);
 		}
+		System.out.println("---");
+		for (Object i :set ) {
+			Integer ii = (Integer)i;
+			System.out.println(ii);
+		}
+		
+		
+		
 		
 		
 		
