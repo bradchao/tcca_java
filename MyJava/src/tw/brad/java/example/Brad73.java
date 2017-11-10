@@ -10,8 +10,12 @@ public class Brad73 {
 		System.out.println(i1.hashCode());
 		System.out.println(i2.hashCode());
 		HashSet set = new HashSet();
-		set.add(i1);set.add(i2);
-		System.out.println(set.size());
+		while (set.size()<6) {
+			set.add((int)(Math.random()*49+1));
+		}
+		System.out.println(set.toString());
+		
+		
 		
 	}
 
