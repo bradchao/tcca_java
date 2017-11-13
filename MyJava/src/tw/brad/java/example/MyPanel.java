@@ -6,16 +6,22 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.HashMap;
+import java.util.LinkedList;
 
 import javax.swing.JPanel;
 
 public class MyPanel extends JPanel {
+	private LinkedList<HashMap<String,Integer>> line;
+	
 	public MyPanel() {
 		setBackground(Color.YELLOW);
 		
 		MyMouseListener listener = new MyMouseListener();
 		addMouseListener(listener);
 		addMouseMotionListener(listener);
+		
+		line = new LinkedList<>();
 		
 	}
 	
@@ -36,19 +42,20 @@ public class MyPanel extends JPanel {
 		@Override
 		public void mouseDragged(MouseEvent e) {
 			super.mouseDragged(e);
-			System.out.println("drag");
 		}
 
 		@Override
 		public void mousePressed(MouseEvent e) {
 			super.mousePressed(e);
-			System.out.println("press");
+			int x = e.getX(), y = e.getY();
+			HashMap<String,Integer> point = new HashMap<>();
+			point.put("x", x); point.put("y", y);
+			line.add(point);
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			super.mouseReleased(e);
-			System.out.println("release");
 		}
 		
 	}
