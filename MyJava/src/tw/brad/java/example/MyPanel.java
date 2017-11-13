@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import javax.swing.JPanel;
 
 public class MyPanel extends JPanel {
-	private LinkedList<LinkedList<HashMap<String,Integer>>> lines;
+	private LinkedList<LinkedList<HashMap<String,Integer>>> lines, recycler;
 	
 	public MyPanel() {
 		setBackground(Color.YELLOW);
@@ -22,6 +22,7 @@ public class MyPanel extends JPanel {
 		addMouseMotionListener(listener);
 		
 		lines = new LinkedList<>();
+		recycler = new LinkedList<>();
 		
 	}
 	
@@ -50,8 +51,17 @@ public class MyPanel extends JPanel {
 	}
 	
 	public void undo() {
-		lines.removeLast();
-		repaint();
+		if (lines.size()>0) {
+			recycler.add(lines.removeLast());
+			repaint();
+		}
+	}
+
+	public void redo() {
+		if (recycler.size()>0) {
+			lines.add(recycler.removeLast());
+			repaint();
+		}
 	}
 	
 	private class MyMouseListener extends MouseAdapter {
@@ -75,6 +85,8 @@ public class MyPanel extends JPanel {
 			point.put("x", x); point.put("y", y);
 			line.add(point);
 			lines.add(line);
+			
+			recycler.clear();
 		}
 
 
