@@ -49,6 +49,10 @@ public class MyPanel extends JPanel {
 		repaint();
 	}
 	
+	public void undo() {
+		lines.removeLast();
+		repaint();
+	}
 	
 	private class MyMouseListener extends MouseAdapter {
 
