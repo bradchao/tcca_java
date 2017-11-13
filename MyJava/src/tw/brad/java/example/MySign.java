@@ -2,6 +2,8 @@ package tw.brad.java.example;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -23,6 +25,13 @@ public class MySign extends JFrame {
 		
 		myPanel = new MyPanel();
 		add(myPanel, BorderLayout.CENTER);
+		
+		clear.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				myPanel.clear();
+			}
+		});
 		
 		
 		setSize(800, 600);

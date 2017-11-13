@@ -42,9 +42,13 @@ public class MyPanel extends JPanel {
 				g2d.drawLine(p0.get("x"), p0.get("y"), p1.get("x"), p1.get("y"));
 			}
 		}
-		
-		
 	}
+	
+	public void clear() {
+		lines.clear();
+		repaint();
+	}
+	
 	
 	private class MyMouseListener extends MouseAdapter {
 
