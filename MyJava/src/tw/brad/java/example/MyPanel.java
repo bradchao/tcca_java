@@ -64,6 +64,10 @@ public class MyPanel extends JPanel {
 		}
 	}
 	
+	public LinkedList<LinkedList<HashMap<String,Integer>>> getLines(){
+		return lines;
+	}
+	
 	private class MyMouseListener extends MouseAdapter {
 
 		@Override
