@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 public class Racing extends JFrame{
 	private JButton go;
 	private JLabel[] lanes;
+	private Horse[] horses;
 	
 	public Racing() {
 		super("賽馬");
@@ -18,13 +19,26 @@ public class Racing extends JFrame{
 		add(go);
 		
 		lanes = new JLabel[8];
+		horses = new Horse[8];
 		for (int i=0; i<lanes.length; i++) {
 			lanes[i] = new JLabel((i+1) +". ");
 			add(lanes[i]);
+			horses[i] = new Horse(i);
 		}
 		
 		setSize(800, 480);
 		setVisible(true);
+	}
+	
+	private class Horse extends Thread {
+		int lane;
+		Horse(int lane){this.lane = lane;}
+		@Override
+		public void run() {
+			for (int i=0; i<100; i++) {
+				lanes[lane].setText(lanes[lane].getText() + ">");
+			}
+		}
 	}
 	
 	public static void main(String[] args) {
