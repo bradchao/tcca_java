@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 public class MySign extends JFrame {
 	private JButton clear, undo, redo, save, open, saveJpeg;
 	private MyPanel myPanel;
+	private MyClock myClock;
 	
 	public MySign() {
 		super("我的簽名板");
@@ -34,8 +35,11 @@ public class MySign extends JFrame {
 		save = new JButton("Save");
 		open = new JButton("Open");
 		saveJpeg = new JButton("Save Jpeg");
+		myClock = new MyClock();
+		
 		top.add(clear);top.add(undo);top.add(redo);top.add(save);top.add(open);
 		top.add(saveJpeg);
+		top.add(myClock);
 		
 		add(top, BorderLayout.NORTH);
 		
