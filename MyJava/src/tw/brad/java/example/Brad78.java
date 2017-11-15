@@ -5,9 +5,13 @@ public class Brad78 {
 	public static void main(String[] args) {
 		MyThread mt1 = new MyThread("A");
 		MyThread mt2 = new MyThread("B");
+		
+		MyRunnable mr1 = new MyRunnable("C");
+		Thread t1 = new Thread(mr1);
+		
 		mt1.start();
 		mt2.start();
-		//mt1.start();
+		t1.start();
 		System.out.println("Main");
 		
 	}
