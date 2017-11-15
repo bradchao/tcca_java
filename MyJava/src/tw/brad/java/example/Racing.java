@@ -36,7 +36,6 @@ public class Racing extends JFrame{
 			}
 		});
 		
-		
 		setSize(800, 480);
 		setVisible(true);
 	}
@@ -64,16 +63,25 @@ public class Racing extends JFrame{
 				
 				if (i==99) {
 					lanes[lane].setText(lanes[lane].getText() + ++rank);
+					cancelGame();
 					break;
 				}
 				
 				try {
 					Thread.sleep(0 + (int)(Math.random()*200));
 				} catch (InterruptedException e) {
+					break;
 				}
 			}
 		}
 	}
+	
+	private void cancelGame() {
+		for (int i=0; i<horses.length; i++) {
+			horses[i].interrupt();
+		}
+	}
+	
 	
 	public static void main(String[] args) {
 		new Racing();
