@@ -1,6 +1,8 @@
 package tw.brad.java.example;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,9 +28,24 @@ public class Racing extends JFrame{
 			horses[i] = new Horse(i);
 		}
 		
+		go.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				go();
+			}
+		});
+		
+		
 		setSize(800, 480);
 		setVisible(true);
 	}
+	
+	private void go() {
+		for (int i=0; i<horses.length; i++) {
+			horses[i].start();
+		}
+	}
+	
 	
 	private class Horse extends Thread {
 		int lane;
@@ -37,6 +54,10 @@ public class Racing extends JFrame{
 		public void run() {
 			for (int i=0; i<100; i++) {
 				lanes[lane].setText(lanes[lane].getText() + ">");
+				try {
+					Thread.sleep(0 + (int)(Math.random()*200));
+				} catch (InterruptedException e) {
+				}
 			}
 		}
 	}
