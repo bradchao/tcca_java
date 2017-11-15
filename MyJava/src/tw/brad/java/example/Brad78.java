@@ -8,6 +8,7 @@ public class Brad78 {
 		mt1.start();
 		mt2.start();
 		//mt1.start();
+		System.out.println("Main");
 		
 	}
 
@@ -16,6 +17,21 @@ public class Brad78 {
 class MyThread extends Thread {
 	private String name;
 	MyThread(String name){this.name = name;}
+	@Override
+	public void run() {
+		for (int i=0; i<20; i++) {
+			System.out.println(name + " = " + i);
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				
+			}
+		}
+	}
+}
+class MyRunnable implements Runnable {
+	private String name;
+	MyRunnable(String name){this.name = name;}
 	@Override
 	public void run() {
 		for (int i=0; i<20; i++) {
