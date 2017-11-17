@@ -12,17 +12,25 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class GameView extends JPanel {
-	private File imgBall;
+	private File fileBall;
 	private Timer timer;
 	private int ballX, ballY, viewW, viewH, ballW, ballH, dx, dy;
 	
+	private BufferedImage imgBall;
+	
 	public GameView() {
-		imgBall = new File("./dir1/ball.png");
+		fileBall = new File("./dir1/ball.png");
 		timer = new Timer();
 		timer.schedule(new BallTask(), 1000, 60);
 		
-		dx = dy = 4;
+		dx = dy = 10;
 		ballX = ballY = 0;
+		try {
+			imgBall = ImageIO.read(fileBall);
+			ballW = imgBall.getWidth(); ballH = imgBall.getHeight();
+		}catch(Exception ee) {
+			
+		}
 		
 	}
 	
@@ -33,14 +41,7 @@ public class GameView extends JPanel {
 		
 		Graphics2D g2d = (Graphics2D)g;
 		
-		try {
-			BufferedImage img = ImageIO.read(imgBall);
-			ballW = img.getWidth(); ballH = img.getHeight();
-			g2d.drawImage(img, ballX, ballY, null);
-		} catch (IOException e) {
-			System.out.println(e.toString());
-		}
-		
+		g2d.drawImage(imgBall, ballX, ballY, null);
 		
 	}
 	
