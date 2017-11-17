@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 
 public class GameView extends JPanel {
 	private Timer timer;
-	private int viewW, viewH, dx, dy;
+	private int viewW, viewH;
 	
 	private BufferedImage[] imgBalls = new BufferedImage[4];
 	private LinkedList<Ball> balls = new LinkedList<>();
@@ -26,7 +26,6 @@ public class GameView extends JPanel {
 		timer = new Timer();
 		timer.schedule(new RefreshView(), 1000, 60);
 		
-		dx = dy = 10;
 		try {
 			imgBalls[0] = ImageIO.read(new File("./dir1/ball0.png"));
 			imgBalls[1] = ImageIO.read(new File("./dir1/ball1.png"));
@@ -48,7 +47,7 @@ public class GameView extends JPanel {
 	
 	private void addBall(int ex, int ey) {
 		Ball ball = new Ball(ex, ey, (int)(Math.random()*4));
-		timer.schedule(ball, 0, 30);
+		timer.schedule(ball, 500, 30);
 		balls.add(ball);
 	}
 	
@@ -59,7 +58,9 @@ public class GameView extends JPanel {
 		
 		Graphics2D g2d = (Graphics2D)g;
 		
-		//g2d.drawImage(imgBall, ballX, ballY, null);
+		for (Ball ball : balls) {
+			g2d.drawImage(imgBalls[ball.which], ball.x, ball.y, null);
+		}
 		
 	}
 	
@@ -72,11 +73,13 @@ public class GameView extends JPanel {
 	
 	private class Ball extends TimerTask {
 		int x, y, w, h, which;
+		int dx,dy;
 		Ball(int x, int y, int which){
-			this.x = x; this.y = y;
+			dx = dy = 4;
 			this.which = which;
 			w = imgBalls[which].getWidth();
 			h = imgBalls[which].getHeight();
+			this.x = x - w/2; this.y = y - h/2;
 		}
 		@Override
 		public void run() {
