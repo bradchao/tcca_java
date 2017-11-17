@@ -12,22 +12,21 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class GameView extends JPanel {
-	private File fileBall;
 	private Timer timer;
-	private int ballX, ballY, viewW, viewH, ballW, ballH, dx, dy;
+	private int viewW, viewH, dx, dy;
 	
-	private BufferedImage imgBall;
+	private BufferedImage[] imgBalls = new BufferedImage[4];
 	
 	public GameView() {
-		fileBall = new File("./dir1/ball.png");
 		timer = new Timer();
-		timer.schedule(new BallTask(), 1000, 60);
+		timer.schedule(new RefreshView(), 1000, 60);
 		
 		dx = dy = 10;
-		ballX = ballY = 0;
 		try {
-			imgBall = ImageIO.read(fileBall);
-			ballW = imgBall.getWidth(); ballH = imgBall.getHeight();
+			imgBalls[0] = ImageIO.read(new File("./dir1/ball0.png"));
+			imgBalls[1] = ImageIO.read(new File("./dir1/ball1.png"));
+			imgBalls[2] = ImageIO.read(new File("./dir1/ball2.png"));
+			imgBalls[3] = ImageIO.read(new File("./dir1/ball3.png"));
 		}catch(Exception ee) {
 			
 		}
@@ -41,25 +40,37 @@ public class GameView extends JPanel {
 		
 		Graphics2D g2d = (Graphics2D)g;
 		
-		g2d.drawImage(imgBall, ballX, ballY, null);
+		//g2d.drawImage(imgBall, ballX, ballY, null);
 		
 	}
 	
-	private class BallTask extends TimerTask {
+	private class RefreshView extends TimerTask {
 		@Override
 		public void run() {
-			if (ballX<0 || ballX+ballW > viewW) {
-				dx *= -1;
-			}
-			if (ballY<0 || ballY + ballH > viewH) {
-				dy *= -1;
-			}
-			
-			ballX += dx;
-			ballY += dy;
 			repaint();
 		}
 	}
 	
+	private class Ball extends TimerTask {
+		int x, y, w, h, which;
+		Ball(int x, int y, int which){
+			this.x = x; this.y = y;
+			this.which = which;
+			w = imgBalls[which].getWidth();
+			h = imgBalls[which].getHeight();
+		}
+		@Override
+		public void run() {
+			if (x<0 || x+w > viewW) {
+				dx *= -1;
+			}
+			if (y<0 || y + h > viewH) {
+				dy *= -1;
+			}
+			
+			x += dx;
+			y += dy;
+		}
+	}
 	
 }
