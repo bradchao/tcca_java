@@ -6,12 +6,16 @@ import java.util.TimerTask;
 public class Brad79 {
 	
 	public static void main(String[] args) {
-		Timer timer = new Timer();
+		Timer timer = new Timer(false);
 		Task t1 = new Task();
 		timer.schedule(t1, 1*1000, 1*1000);
 		StopTimer t2 = new StopTimer(timer);
 		timer.schedule(t2, 10*1000);
 		
+		try {
+			Thread.sleep(5*1000);
+		} catch (InterruptedException e) {
+		}
 		System.out.println("OK");
 	}
 
