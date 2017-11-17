@@ -2,9 +2,13 @@ package tw.brad.java.example;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -16,6 +20,7 @@ public class GameView extends JPanel {
 	private int viewW, viewH, dx, dy;
 	
 	private BufferedImage[] imgBalls = new BufferedImage[4];
+	private LinkedList<Ball> balls = new LinkedList<>();
 	
 	public GameView() {
 		timer = new Timer();
@@ -31,6 +36,20 @@ public class GameView extends JPanel {
 			
 		}
 		
+		addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				super.mousePressed(e);
+				addBall(e.getX(), e.getY());
+			}
+		});
+		
+	}
+	
+	private void addBall(int ex, int ey) {
+		Ball ball = new Ball(ex, ey, (int)(Math.random()*4));
+		timer.schedule(ball, 0, 30);
+		balls.add(ball);
 	}
 	
 	@Override
